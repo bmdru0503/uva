@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/CPATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/CPATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/C_INCLUDE_PATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/C_INCLUDE_PATH/operation=append
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/C_INCLUDE_PATH/value=
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/append=true
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/appendContributed=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/LIBRARY_PATH/delimiter=;
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/LIBRARY_PATH/operation=append
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/LIBRARY_PATH/value=
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/append=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.144427467/appendContributed=true
