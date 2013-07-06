@@ -8,14 +8,14 @@
 #define M 0
 
 static void solve(void){
-	int b, p, m;
-	int i, t;
+	int b, p, m, i;
+	long long t;
 	while(~scanf("%d%d%d", &b, &p, &m)){
 		for(t=1, i=0; i<p; ++i){
 			t *= b;
 			t %= m;
 		}
-		printf("%d\n", t);
+		printf("%d\n", (int)t);
 	}
 }
 #if OJ_TEST
