@@ -6,7 +6,7 @@
 #include <limits.h>
 #define OJ_TEST 0
 #define LOCAL_TEST 1
-#define M 64
+#define M 52
 /* A=65, a=97, ²»Á¬Ðø */
 static void solve(void){
 	int frq[M];
@@ -18,7 +18,11 @@ static void solve(void){
 		if(ch == '\n' || ch==EOF){
 			for(i=0; i<M; ++i){
 				if(frq[i] == mf){
-					putchar('A'+i);
+					if(i>=26){
+						putchar('a'+i-26);
+					}else{
+						putchar('A'+i);
+					}
 				}
 			}
 			printf(" %d\n", mf);
@@ -26,9 +30,16 @@ static void solve(void){
 			memset(frq, 0, sizeof(frq));
 			mf = 0;
 		}else{
-			if(isalpha(ch)){
-				++frq[ch-'A'];
-				if(mf < frq[ch-'A']) mf = frq[ch-'A'];
+			i = -1;
+			if(isupper(ch)){
+				i = ch - 'A';
+			}
+			if(islower(ch)){
+				i = ch - 'a' + 26;
+			}
+			if(i!=-1){
+				++frq[i];
+				mf = frq[i]>mf?frq[i]:mf;
 			}
 		}
 	}
