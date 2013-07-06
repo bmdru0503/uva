@@ -9,11 +9,14 @@
 
 static void solve(void){
 	int b, p, m, i;
-	long long t;
+	long long t, s;
 	while(~scanf("%d%d%d", &b, &p, &m)){
-		for(t=1, i=0; i<p; ++i){
-			t *= b;
-			t %= m;
+		t=1;
+		s=b;
+		while(p>=1){
+			if(p%2) t = t*s%m;
+			s = s*s%m;
+			p /= 2;
 		}
 		printf("%d\n", (int)t);
 	}
