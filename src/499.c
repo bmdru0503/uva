@@ -5,43 +5,36 @@
 #include <math.h>
 #include <limits.h>
 #define OJ_TEST 0
-#define LOCAL_TEST 1
-#define M 52
+#define LOCAL_TEST 0
+#define M 128
 /* A=65, a=97, ²»Á¬Ðø */
 static void solve(void){
 	int frq[M];
+	char line[2048];
 	int mf, i;
 	int ch;
 	memset(frq, 0, sizeof(frq));
 	mf = 0;
-	while((ch=getchar())){
-		if(ch == '\n' || ch==EOF){
-			for(i=0; i<M; ++i){
-				if(frq[i] == mf){
-					if(i>=26){
-						putchar('a'+i-26);
-					}else{
-						putchar('A'+i);
-					}
-				}
-			}
-			printf(" %d\n", mf);
-			if(ch==EOF) break;
-			memset(frq, 0, sizeof(frq));
-			mf = 0;
-		}else{
-			i = -1;
-			if(isupper(ch)){
-				i = ch - 'A';
-			}
-			if(islower(ch)){
-				i = ch - 'a' + 26;
-			}
-			if(i!=-1){
-				++frq[i];
-				mf = frq[i]>mf?frq[i]:mf;
+	while(gets(line)){
+		for(i=0; i<M; ++i){
+			if(isalpha(i)){
+				frq[i] = 0;
+			}else{
+				frq[i] = -1;
 			}
 		}
+		for(mf=0, i=0; i<strlen(line); ++i){
+			if(isalpha(line[i])){
+				++frq[line[i]];
+				mf = frq[line[i]]>mf ? frq[line[i]]:mf;
+			}
+		}
+		for(i=0; i<M; ++i){
+			if(frq[i]==mf){
+				putchar(i);
+			}
+		}
+		printf(" %d\n", mf);
 	}
 }
 #if OJ_TEST
