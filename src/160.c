@@ -4,12 +4,12 @@
 #include <math.h>
 #include <limits.h>
 #define OJ_TEST 0
-#define LOCAL_TEST 1
+#define LOCAL_TEST 0
 #define M 101
 
 static void solve(void){
 	int primes[M];
-	int temp[M], i, j, k;
+	int temp[M], i, j, k, mk;
 	int n;
 
 	memset(temp, -1, sizeof(temp));
@@ -22,16 +22,19 @@ static void solve(void){
 	}
 	while(scanf("%d", &n), n){
 		memset(temp, 0, sizeof(temp));
+		mk = 0; /* 出现的最大质数 序号*/
 		for(i=2; i<=n; ++i){
 			for(j=i, k=0; j>1; ++k){
 				while(j%primes[k]==0){
 					j /=primes[k];
 					++temp[k];
+					mk = k>mk?k:mk;
 				}
 			}
 		}
 		printf("%3d! =", n);
-		for(i=0; primes[i]<=n; ++i){
+
+		for(i=0; i<=mk; ++i){
 			if(i&& (i%15==0)){
 				printf("\n      "); /* six space  %3d!-  */
 			}
