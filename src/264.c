@@ -18,7 +18,15 @@ static void solve(void){
 		}
 	}
 	while(~scanf("%d", &n)){
-		for(i=1; seq[i]<n; ++i);
+		i=1; j=M;
+		while(i<j){
+			k = (i+j)/2;
+			if(seq[k]>=n){
+				j=k;
+			}else{
+				i=k+1;
+			}
+		}
 		if(seq[i]-i>=n){
 			for(--i, j=i+1, k=seq[i]; k!=n; ++k, --i);
 		}else{
