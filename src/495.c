@@ -6,7 +6,8 @@
 #define OJ_TEST 0
 #define LOCAL_TEST 0
 #define M 5001
-static char fib[M][M];
+#define INF 10000000
+static int fib[M][M/8];
 static void solve(void){
 	int i, j, n, cr;
 	fib[0][0]=0;
@@ -15,13 +16,13 @@ static void solve(void){
 	for(i=3; i<M; ++i){
 		for(cr=0, j=0; fib[i-2][j]!=-1; ++j){
 			cr += fib[i-1][j] + fib[i-2][j];
-			fib[i][j] = cr %10;
-			cr /= 10;
+			fib[i][j] = cr %INF;
+			cr /= INF;
 		}
 		if(fib[i-1][j]!=-1){
 			cr += fib[i-1][j];
-			fib[i][j++] = cr%10;
-			cr /=10;
+			fib[i][j++] = cr%INF;
+			cr /=INF;
 		}
 		if(cr)fib[i][j++] = cr;
 		fib[i][j] = -1;
@@ -29,7 +30,8 @@ static void solve(void){
 	while(~scanf("%d", &n)){
 		printf("The Fibonacci number for %d is ", n);
 		for(i=0; fib[n][i]!=-1; ++i);
-		for(--i; i>=0; --i)printf("%d", fib[n][i]);
+		printf("%d", fib[n][--i]); /* 注意此处的处理 */
+		for(--i; i>=0; --i)printf("%07d", fib[n][i]); /* %07d,与上面的INF保持一致 */
 		putchar('\n');
 
 	}
