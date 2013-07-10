@@ -13,9 +13,7 @@ int gcd(int a, int b){
 		c=a; a=b; b=c;
 	}
 	while(b){
-		c= a%b;
-		a = b;
-		b= c;
+		c= a%b; a = b; b= c;
 	}
 	return a;
 }
@@ -24,7 +22,7 @@ static void solve(void){
 	int m, n, i, ans;
 	int c, d;
 	while(scanf("%d%d", &m, &n), m){
-		if(2*n>m) n = m - n;
+		if(n>m/2) n = m-n;
 		for(ans=1, d=m, i=1; i<=n; ++i, --d){
 			c = gcd(d, i);
 			ans /= (i/c);
