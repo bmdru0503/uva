@@ -4,7 +4,7 @@
 #include <math.h>
 #include <limits.h>
 #define OJ_TEST 0
-#define LOCAL_TEST 1
+#define LOCAL_TEST 0
 #define M 0
 
 static void solve(void){
